@@ -50,6 +50,20 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 		return null;
 	}
 
+	@Override
+	public void agregarDatos() {
+		System.out.print("agregarDatos en UsuarioDAO");
+		Usuario user1 = new Usuario(33333333, "Juan", "Perez");
+		Usuario user2 = new Usuario (55555555, "Maria", "Ines");
+		Usuario user3 = new Usuario (50446656, "Agustina", "Corvo");
+		usuarios.add(user1);
+		System.out.print("user1 agregado");
+		usuarios.add(user2);
+		System.out.print("user2 agregado");
+		usuarios.add(user3);
+		System.out.print("user3 agregado");		
+	}
+
 	
 
 	

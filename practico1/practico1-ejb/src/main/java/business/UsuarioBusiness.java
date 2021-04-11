@@ -3,6 +3,7 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -16,7 +17,7 @@ import entity.Usuario;
 @LocalBean
 public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLocal {
 
-	@Inject
+	@EJB
 	UsuarioDAOLocal usuarioDAO;
     
     public UsuarioBusiness() {}
@@ -27,17 +28,16 @@ public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLo
     	usuarioDAO.agregarUsuario(nuevoUsuario);
     }
     
-    @Override
+	@Override
     public ArrayList<DtUsuario> obtenerUsuarios(){
     	ArrayList<Usuario> usuarios= usuarioDAO.obtenerUsuarios();
-    	ArrayList<DtUsuario> aDevolver = null;
+    	ArrayList<DtUsuario> aDevolver = new ArrayList<DtUsuario>();
     	DtUsuario aux;
     	for(Usuario u: usuarios) {
     		aux = new DtUsuario (u.getCedula(), u.getNombre(), u.getApellido());
     		aDevolver.add(aux);
     	}
     	return aDevolver;
-
     }
     
     @Override
@@ -46,6 +46,22 @@ public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLo
     	DtUsuario aDevolver = new DtUsuario (aux.getCedula(), aux.getNombre(), aux.getApellido());
     	return aDevolver;
     }
+
+	@Override
+	public void agregarDatos() {
+		System.out.print("entre a agregarDatos UsuarioBusiness");
+		usuarioDAO.agregarDatos();
+		System.out.print("final de agregarDatos UsuarioBusiness");
+		
+	}
+
+	@Override
+	public void print() {
+		System.out.print("prueba 1000");
+		
+	}
+	
+	
     
 
 }
