@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>tse-2021</groupId>
+  <artifactId>practico1-client</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+	<dependencies>
+	  	<dependency>
+		    <groupId>org.wildfly</groupId>
+		    <artifactId>wildfly-ejb-client-bom</artifactId>
+		    <version>21.0.0.Final</version>
+		    <type>pom</type>
+		</dependency>
+	  	
+	  	<dependency>
+	  		<groupId>${project.groupId}</groupId>
+	  		<artifactId>practico1-ejb</artifactId>
+	  		<type>ejb</type>
+	  		<scope>provided</scope>
+	  		<version>0.0.1-SNAPSHOT</version>
+	  	</dependency>
+	  
+	 </dependencies>
+ </project>
