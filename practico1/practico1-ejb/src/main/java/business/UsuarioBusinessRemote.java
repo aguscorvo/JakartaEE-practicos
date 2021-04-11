@@ -12,6 +12,4 @@ public interface UsuarioBusinessRemote {
     public ArrayList<DtUsuario> obtenerUsuarios();
     public DtUsuario obtenerUsuario(int cedula);
     public void agregarDatos();
-    public void print();
-
 }

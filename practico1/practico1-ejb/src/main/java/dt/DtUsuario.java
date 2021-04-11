@@ -1,8 +1,11 @@
 package dt;
 
+import java.io.Serializable;
 
-public class DtUsuario {
+public class DtUsuario implements Serializable {
 
+	
+	private static final long serialVersionUID = 1L;
 	private int cedula;
 	private String nombre;
 	private String apellido;

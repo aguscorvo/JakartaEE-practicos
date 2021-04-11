@@ -49,19 +49,8 @@ public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLo
 
 	@Override
 	public void agregarDatos() {
-		System.out.print("entre a agregarDatos UsuarioBusiness");
 		usuarioDAO.agregarDatos();
-		System.out.print("final de agregarDatos UsuarioBusiness");
-		
 	}
-
-	@Override
-	public void print() {
-		System.out.print("prueba 1000");
-		
-	}
-	
-	
     
 
 }

@@ -12,6 +12,4 @@ public interface UsuarioDAORemote {
     public ArrayList<Usuario> obtenerUsuarios();
     public Usuario obtenerUsuario(int cedula);
     public void agregarDatos();
-
-
 }
