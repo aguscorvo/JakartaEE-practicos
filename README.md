@@ -15,7 +15,7 @@ Aplicación que permite gestionar usuarios.
 - Buscar usuario
 - Borrar usuario
 - Editar usuario
-- Cargar datos harcodeados
+- Cargar datos hardcodeados
 
 ## Por hacer
 
