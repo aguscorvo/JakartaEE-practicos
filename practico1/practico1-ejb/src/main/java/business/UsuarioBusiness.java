@@ -51,6 +51,16 @@ public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLo
 	public void agregarDatos() {
 		usuarioDAO.agregarDatos();
 	}
+
+	@Override
+	public void borrarUsuario(int cedula) {
+		usuarioDAO.borrarUsuario(cedula);
+	}
+
+	@Override
+	public void editarUsuario(int cedula, String nombre, String apellido) {
+		usuarioDAO.editarUsuario(cedula, nombre, apellido);
+	}
     
 
 }

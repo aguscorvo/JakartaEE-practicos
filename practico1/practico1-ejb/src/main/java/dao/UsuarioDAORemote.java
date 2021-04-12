@@ -12,4 +12,5 @@ public interface UsuarioDAORemote {
     public ArrayList<Usuario> obtenerUsuarios();
     public Usuario obtenerUsuario(int cedula);
     public void agregarDatos();
-}
+    public void borrarUsuario(int cedula);
+    public void editarUsuario(int cedula, String nombre, String apellido);}

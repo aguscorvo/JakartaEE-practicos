@@ -60,6 +60,23 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 		usuarios.add(user3);
 	}
 
+	@Override
+	public void borrarUsuario(int cedula) {
+		if (existeUsuario(cedula)) {
+			Usuario aux = obtenerUsuario(cedula);
+			usuarios.remove(aux);
+		}		
+	}
+
+	@Override
+	public void editarUsuario(int cedula, String nombre, String apellido) {
+		if (existeUsuario(cedula)) {
+			Usuario aux = obtenerUsuario(cedula);
+			aux.setNombre(nombre);
+			aux.setApellido(apellido);		
+		}		
+	}
+
 	
 
 	

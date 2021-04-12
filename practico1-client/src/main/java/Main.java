@@ -33,7 +33,9 @@ public class Main {
 					+ "1- Agregar usuario \n"
 					+ "2- Listar usuarios\n"
 					+ "3- Buscar usuario\n"
-					+ "4- Cargar datos\n"
+					+ "4- Borrar usuario\n"
+					+ "5- Editar usuario\n"
+					+ "6- Cargar datos\n" 
 					+ "0- Salir\n\n");
 			
 			opcion = entrada.nextInt();
@@ -55,7 +57,15 @@ public class Main {
 					buscarUsuario(usuarioBusiness);
 					break;
 				case 4: 
-					System.out.print("\nCARGAR DATOS\n");
+					System.out.print("\n\nBORRAR USUARIO\n\n");
+					borrarUsuario(usuarioBusiness);
+					break;
+				case 5: 
+					System.out.print("\n\nEDITAR USUARIO\n\n");
+					editarUsuario(usuarioBusiness);
+					break;
+				case 6: 
+					System.out.print("\n\nCARGAR DATOS\n");
 					cargarDatos(usuarioBusiness);
 					break;
 				default:
@@ -67,6 +77,7 @@ public class Main {
 		
 	}
 	
+
 
 	public static void subMenu () {
 		int opcion=1;
@@ -103,6 +114,8 @@ public class Main {
 		DtUsuario u = new DtUsuario (cedula, nombre, apellido);
 		business.agregarUsuario(u);		
 		subMenu ();
+		System.out.print("Se creó el usuario: \nCedula: " + u.getCedula() + " / Nombre: " + u.getNombre() + " / Apellido: " + u.getApellido() + "\n");
+
 	}
 	
 	// Listar usuarios
@@ -135,6 +148,28 @@ public class Main {
 		subMenu ();
 	}
 	
+	// Borrar usuario
+	private static void borrarUsuario(UsuarioBusinessRemote business) {
+		System.out.print("Cédula: ");
+		int cedula;
+		cedula= entrada.nextInt();
+		business.borrarUsuario(cedula);
+		System.out.print("\nEl usuario con cédula " + cedula + " fue eliminado del sistema\n");
+		subMenu ();
+	}
 	
+	// Editar usuario
+	private static void editarUsuario(UsuarioBusinessRemote business) {
+		int cedula;
+		String nombre, apellido;
+		System.out.print("Cédula: ");
+		cedula= entrada.nextInt();
+		System.out.print("\nNuevo nombre: ");
+		nombre = entrada.next();
+		System.out.print("\nNuevo apellido: ");
+		apellido = entrada.next();
+		System.out.print("\nUsuario modificado: \nCedula: " + cedula + " / Nombre: " + nombre + " / Apellido: " + apellido + "\n");
+		subMenu ();		
+	}
 
 }

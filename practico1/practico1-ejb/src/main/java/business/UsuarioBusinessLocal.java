@@ -12,4 +12,6 @@ public interface UsuarioBusinessLocal {
     public ArrayList<DtUsuario> obtenerUsuarios();
     public DtUsuario obtenerUsuario(int cedula);
     public void agregarDatos();
+    public void borrarUsuario(int cedula);
+    public void editarUsuario(int cedula, String nombre, String apellido);
 }
