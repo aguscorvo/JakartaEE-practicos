@@ -6,7 +6,6 @@ import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
 
-import dt.DtUsuario;
 import entity.Usuario;
 
 
@@ -14,7 +13,7 @@ import entity.Usuario;
 @LocalBean
 public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 	
-	ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+	List<Usuario> usuarios = new ArrayList<Usuario>();
 
    
     public UsuarioDAO() {}
@@ -35,7 +34,7 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 	}
 
 	@Override
-	public ArrayList<Usuario> obtenerUsuarios() {
+	public List<Usuario> obtenerUsuarios() {
 		return usuarios;
 	}
 

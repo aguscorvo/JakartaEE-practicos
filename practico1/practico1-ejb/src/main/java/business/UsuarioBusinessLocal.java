@@ -1,6 +1,6 @@
 package business;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.Local;
 
@@ -9,7 +9,7 @@ import dt.DtUsuario;
 @Local
 public interface UsuarioBusinessLocal {
 	public void agregarUsuario(DtUsuario usuario);
-    public ArrayList<DtUsuario> obtenerUsuarios();
+    public List<DtUsuario> obtenerUsuarios();
     public DtUsuario obtenerUsuario(int cedula);
     public void agregarDatos();
     public void borrarUsuario(int cedula);

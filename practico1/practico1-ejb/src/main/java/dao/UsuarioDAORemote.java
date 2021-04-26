@@ -1,6 +1,6 @@
 package dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.Remote;
 
@@ -9,7 +9,7 @@ import entity.Usuario;
 @Remote
 public interface UsuarioDAORemote {
 	public void agregarUsuario(Usuario usuario);
-    public ArrayList<Usuario> obtenerUsuarios();
+    public List<Usuario> obtenerUsuarios();
     public Usuario obtenerUsuario(int cedula);
     public void agregarDatos();
     public void borrarUsuario(int cedula);

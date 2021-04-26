@@ -1,9 +1,10 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,9 +20,9 @@ public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     @EJB
-    private UsuarioBusinessLocal usuarioBusiness;
+    UsuarioBusinessLocal usuarioBusiness;
     
-    private ArrayList<DtUsuario> usuarios;
+    private List<DtUsuario> usuarios;
     
     public UsuarioServlet() {
         super();
@@ -31,14 +32,20 @@ public class UsuarioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		usuarioBusiness.agregarDatos();
 		usuarios = usuarioBusiness.obtenerUsuarios();
-		request.setAttribute("usuarios", usuarios);
+		//request.setAttribute("usuarios", usuarios);
 		
-		request.getRequestDispatcher("listarUsuarios.jsp").forward(request, response);
+		for(int i=0; i<usuarios.size();i++) {
+			System.out.println(usuarios.get(i));
+		}
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("listarUsuarios.jsp");
+		request.setAttribute("usuarios", usuarios);
+		dispatcher.forward(request, response);
+		//request.getRequestDispatcher("listarUsuarios.jsp").forward(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

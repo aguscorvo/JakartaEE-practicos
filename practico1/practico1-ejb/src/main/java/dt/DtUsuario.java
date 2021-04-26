@@ -43,4 +43,11 @@ public class DtUsuario implements Serializable {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
+
+	@Override
+	public String toString() {
+		return "DtUsuario [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + "]";
+	}
+	
+	
 }

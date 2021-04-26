@@ -6,7 +6,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 
 import dao.UsuarioDAOLocal;
 import dt.DtUsuario;
@@ -29,9 +28,9 @@ public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLo
     }
     
 	@Override
-    public ArrayList<DtUsuario> obtenerUsuarios(){
-    	ArrayList<Usuario> usuarios= usuarioDAO.obtenerUsuarios();
-    	ArrayList<DtUsuario> aDevolver = new ArrayList<DtUsuario>();
+    public List<DtUsuario> obtenerUsuarios(){
+    	List<Usuario> usuarios= usuarioDAO.obtenerUsuarios();
+    	List<DtUsuario> aDevolver = new ArrayList<DtUsuario>();
     	DtUsuario aux;
     	for(Usuario u: usuarios) {
     		aux = new DtUsuario (u.getCedula(), u.getNombre(), u.getApellido());
