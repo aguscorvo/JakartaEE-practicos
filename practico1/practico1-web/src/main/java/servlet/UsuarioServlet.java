@@ -31,15 +31,15 @@ public class UsuarioServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		usuarioBusiness.agregarDatos();
-		usuarios = usuarioBusiness.obtenerUsuarios();
+//		usuarios = usuarioBusiness.obtenerUsuarios();
 		//request.setAttribute("usuarios", usuarios);
 		
-		for(int i=0; i<usuarios.size();i++) {
-			System.out.println(usuarios.get(i));
-		}
+//		for(int i=0; i<usuarios.size();i++) {
+//			System.out.println(usuarios.get(i));
+//		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("listarUsuarios.jsp");
-		request.setAttribute("usuarios", usuarios);
+		request.setAttribute("asd", usuarioBusiness.obtenerUsuarios());
 		dispatcher.forward(request, response);
 		//request.getRequestDispatcher("listarUsuarios.jsp").forward(request, response);
 	}
