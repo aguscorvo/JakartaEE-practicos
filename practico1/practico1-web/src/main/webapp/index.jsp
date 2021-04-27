@@ -8,10 +8,7 @@
 </head>
 <body>
     <h1>VACUNAS.UY - USUARIOS</h1>
-	<p><a href="UsuarioServlet">Listar usuarios</a></p>
-	<p><a href="#">Agregar usuario</a></p>
-	<p><a href="#">Buscar usuario</a></p>
-	
-	
+    <p><a href="JSP.jsp">JSP</a></p>   
+	<p><a href="#">JSF</a></p>	
 </body>
 </html>

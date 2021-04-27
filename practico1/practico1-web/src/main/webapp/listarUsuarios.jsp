@@ -9,24 +9,27 @@
 <title>Listar usuarios</title>
 </head>
 <body>
+<h1>VACUNAS.UY - LISTAR USUARIOS</h1>
+
 <table border="1">
-		<thead>
-			<tr>
-				<th>Cédula</th>
-				<th>Nombre</th>
-				<th>Apellido</th>
-			</tr>
-		</thead>
-		
-		<c:forEach items="${asd}" var="usuario">
+	<thead>
 		<tr>
-			<td>${usuario.cedula}</td>
-			<td>${usuario.nombre}</td>
-			<td>${usuario.apellido}</td>			
+			<th>Cédula</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
 		</tr>
-		</c:forEach>
-			
-	</table>
+	</thead>
+		
+	<c:forEach items="${asd}" var="usuario">
+	<tr>
+		<td>${usuario.cedula}</td>
+		<td>${usuario.nombre}</td>
+		<td>${usuario.apellido}</td>			
+	</tr>
+	</c:forEach>
+</table>
+<p><a href="JSP.jsp">Volver atrás</a></p>		
+
 
 </body>
 </html>

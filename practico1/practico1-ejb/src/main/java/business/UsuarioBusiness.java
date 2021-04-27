@@ -42,7 +42,9 @@ public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLo
     @Override
     public DtUsuario obtenerUsuario(int cedula) {
     	Usuario aux = usuarioDAO.obtenerUsuario(cedula);
-    	DtUsuario aDevolver = new DtUsuario (aux.getCedula(), aux.getNombre(), aux.getApellido());
+    	DtUsuario aDevolver =null;
+    	if (aux!=null)
+    		aDevolver = new DtUsuario (aux.getCedula(), aux.getNombre(), aux.getApellido());
     	return aDevolver;
     }
 

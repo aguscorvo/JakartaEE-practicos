@@ -15,33 +15,25 @@ import business.UsuarioBusinessLocal;
 import dt.DtUsuario;
 
 
-@WebServlet("/UsuarioServlet")
-public class UsuarioServlet extends HttpServlet {
+@WebServlet("/ListarUsuariosServlet")
+public class ListarUsuariosServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     @EJB
     UsuarioBusinessLocal usuarioBusiness;
     
-    private List<DtUsuario> usuarios;
+//    private List<DtUsuario> usuarios;
     
-    public UsuarioServlet() {
+    public ListarUsuariosServlet() {
         super();
     }
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		usuarioBusiness.agregarDatos();
-//		usuarios = usuarioBusiness.obtenerUsuarios();
-		//request.setAttribute("usuarios", usuarios);
-		
-//		for(int i=0; i<usuarios.size();i++) {
-//			System.out.println(usuarios.get(i));
-//		}
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("listarUsuarios.jsp");
 		request.setAttribute("asd", usuarioBusiness.obtenerUsuarios());
-		dispatcher.forward(request, response);
-		//request.getRequestDispatcher("listarUsuarios.jsp").forward(request, response);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("listarUsuarios.jsp");
+//		dispatcher.forward(request, response);
+		request.getRequestDispatcher("listarUsuarios.jsp").forward(request, response);
 	}
 
 	

@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -120,7 +119,7 @@ public class Main {
 	
 	// Listar usuarios
 	private static void listarUsuarios(UsuarioBusinessRemote business) {
-		ArrayList<DtUsuario> usuarios = business.obtenerUsuarios();
+		List<DtUsuario> usuarios = business.obtenerUsuarios();
 		if (usuarios.isEmpty()) {
 			System.out.print("No existen usuarios registrados en el sistema.\n");
 		}else {
