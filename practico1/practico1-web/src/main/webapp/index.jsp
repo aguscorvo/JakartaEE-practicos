@@ -9,6 +9,6 @@
 <body>
     <h1>VACUNAS.UY - USUARIOS</h1>
     <p><a href="JSP.jsp">JSP</a></p>   
-	<p><a href="#">JSF</a></p>	
+	<p><a href="JSF.xhtml">JSF</a></p>	
 </body>
 </html>
