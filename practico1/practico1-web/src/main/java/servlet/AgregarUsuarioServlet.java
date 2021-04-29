@@ -39,7 +39,7 @@ public class AgregarUsuarioServlet extends HttpServlet {
 		DtUsuario nuevoUsuario = new DtUsuario(cedula, nombre, apellido);
 		
 		usuarioBusiness.agregarUsuario(nuevoUsuario);
-		String mensaje = "El usuario con cédula "+ cedula + " fue creado exitosamente";
+		String mensaje = "El usuario con cédula "+ cedula + " fue creado exitosamente.";
 		
 		request.setAttribute("mensaje", mensaje);
 

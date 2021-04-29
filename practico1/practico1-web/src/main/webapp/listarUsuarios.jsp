@@ -20,7 +20,7 @@
 		</tr>
 	</thead>
 		
-	<c:forEach items="${asd}" var="usuario">
+	<c:forEach items="${usuarios}" var="usuario">
 	<tr>
 		<td>${usuario.cedula}</td>
 		<td>${usuario.nombre}</td>

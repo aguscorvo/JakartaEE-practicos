@@ -30,7 +30,7 @@ public class ListarUsuariosServlet extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("asd", usuarioBusiness.obtenerUsuarios());
+		request.setAttribute("usuarios", usuarioBusiness.obtenerUsuarios());
 //		RequestDispatcher dispatcher = request.getRequestDispatcher("listarUsuarios.jsp");
 //		dispatcher.forward(request, response);
 		request.getRequestDispatcher("listarUsuarios.jsp").forward(request, response);

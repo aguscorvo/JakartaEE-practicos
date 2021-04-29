@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+    <h1>VACUNAS.UY - USUARIOS</h1>
+    
+    <h:form id="formCrear">
+		<p:outputLabel for="cedula" value="Cédula: "/>
+		<p:inputText id="cedula" value="#{usuariosView.usuario.cedula}" />
+		<p:outputLabel for="nombre" value="Nombre: "/>
+		<p:inputText id="nombre" value="#{usuariosView.usuario.nombre}" />
+		<p:outputLabel for="apellido" value="Apellido: "/>
+		<p:inputText id="apellido" value="#{usuariosView.usuario.apellido}" />
+		<p:commandButton value="Crear usuario" id="btnCrear" action="#{usuariosView.agregarUsuario()}" update="form"/>
+	</h:form>
+	
+<!-- 	MENSAJE -->	
+ 	<h:form id="form">
+		<p:outputLabel style="color:red" value="#{usuariosView.mensaje}" 
+		rendered="#{usuariosView.mensaje != null}"/>
+	</h:form>
+	
+	<p><a href="JSF.xhtml">Volver atrás</a></p>	
+	
+	
+
+</body> 
+</html>

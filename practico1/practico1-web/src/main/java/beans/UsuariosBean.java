@@ -14,9 +14,7 @@ import dt.DtUsuario;
 
 @Named("usuariosView")
 @ViewScoped
-//@RequestScoped
 public class UsuariosBean implements Serializable{
-//public class UsuariosBean {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -25,27 +23,44 @@ public class UsuariosBean implements Serializable{
 	
     private List<DtUsuario> listaUsuarios;
     private int cedula;
-    private String nombre;
-    private String apellido;
+    private DtUsuario usuario;
+    private String mensaje;
     
-//    public UsuariosBean() {
-//	}
-
 	@PostConstruct
 	public void init() {
-		//usuarioBusiness.agregarDatos();
 		listaUsuarios = usuarioBusiness.obtenerUsuarios();
-		
-//		for (DtUsuario u: listaUsuarios) {
-//			System.out.println(u.getNombre());
-//		}
+		usuario = new DtUsuario();
+		mensaje = null;		
 	}
 	
-	public void buscarUsuario(int cedula) {
+	public void buscarUsuario() {
 		DtUsuario usuarioEncontrado = usuarioBusiness.obtenerUsuario(cedula);
 		if (usuarioEncontrado!=null) {
-			nombre = usuarioEncontrado.getNombre();
-			apellido = usuarioEncontrado.getApellido();
+			usuario.setCedula(usuarioEncontrado.getCedula());
+			usuario.setNombre(usuarioEncontrado.getNombre());
+			usuario.setApellido(usuarioEncontrado.getApellido());	
+			mensaje=null;
+
+		}
+		else {
+			usuario.setCedula(0);
+			usuario.setNombre("");
+			usuario.setApellido("");	
+			mensaje="Usuario no registrado.";
+			
+		}
+	}
+	
+	public void agregarUsuario() {
+		if ( (!usuario.getNombre().equals(null))
+				& (!usuario.getApellido().equals(null))
+				& (usuario.getCedula()!=0)) {
+			
+			usuarioBusiness.agregarUsuario(usuario);
+			mensaje="El usuario con cédula "+ usuario.getCedula() + " fue creado exitosamente";	
+			
+		}else {
+			mensaje="Error";	
 		}
 	}
 
@@ -60,6 +75,31 @@ public class UsuariosBean implements Serializable{
 	public void setUsuarioBusiness(UsuarioBusinessLocal usuarioBusiness) {
 		this.usuarioBusiness = usuarioBusiness;
 	}
+
+	public int getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(int cedula) {
+		this.cedula = cedula;
+	}
+
+	public DtUsuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(DtUsuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
+	
 	
 	
 

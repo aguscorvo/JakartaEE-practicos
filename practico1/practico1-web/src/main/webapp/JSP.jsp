@@ -13,7 +13,7 @@
 	<p><a href="agregarUsuario.jsp">Agregar usuario</a></p>
 	<p><a href="buscarUsuario.jsp">Buscar usuario</a></p>
 	
-	<p style="margin-top: 10px"><a href="index.jsp">Volver atrás</a></p>	
+	<p style="margin-top: 50px"><a href="index.jsp">HOME</a></p>	
 	
 </body>
 </html>

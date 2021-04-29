@@ -5,48 +5,16 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"> 
 
-
 <h:head></h:head> 
 
 <body> 
     <h1>VACUNAS.UY - USUARIOS</h1>
     
-    <!-- <h:dataTable id="usuarios" value="#{usuariosView.listaUsuarios}" var="usuario">
-	<h:column>
-		<f:facet name="header">Cedula</f:facet>
-			#{usuario.cedula}
-			</h:column>
-	<h:column>
-	<f:facet name="header">Nombre</f:facet>
-	#{usuario.nombre}
-	</h:column>
-	<h:column>
-	<f:facet name="header">Apellido</f:facet>
-	#{usuario.apellido}
-	</h:column>
-	</h:dataTable>
- -->
- 
-	 <h:form>
-	    <div class="card">
-	        <p:dataTable var="usuario" value="#{usuariosView.listaUsuarios}" paginator="true" rows="10"
-	        paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
-	            <p:column headerText="Cédula">
-	                <h:outputText value="#{usuario.cedula}" />
-	            </p:column>
+	<p><a href="listarUsuarios.xhtml">Listar usuarios</a></p>
+	<p><a href="agregarUsuario.xhtml">Agregar usuario</a></p>
+	<p><a href="buscarUsuario.xhtml">Buscar usuario</a></p>
 	
-	            <p:column headerText="Nombre">
-	                <h:outputText value="#{usuario.nombre}" />
-	            </p:column>
-	
-	             <p:column headerText="Apellido">
-	                <h:outputText value="#{usuario.apellido}" />
-	            </p:column>
-	        </p:dataTable>
-	    </div>
-	</h:form>
-	
-	<p><a href="index.jsp">Volver atrás</a></p>	
+	<p style="margin-top: 50px"><a href="index.jsp">HOME</a></p> 	 
 	
 </body> 
 </html>

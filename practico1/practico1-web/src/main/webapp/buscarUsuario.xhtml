@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+    <h1>VACUNAS.UY - USUARIOS</h1>
+    
+    <h:form id="formBuscar">
+		<h3>Buscar por cédula:</h3>
+		<p:outputLabel for="buscarCedula" value="Cédula: "/>
+		<p:inputText id="buscarCedula" value="#{usuariosView.cedula}" />
+		<p:commandButton value="Buscar" id="btnBuscar" action="#{usuariosView.buscarUsuario()}" update="usuarios form"/>
+	</h:form>
+	
+<!-- 	RESULTADO -->	
+ 	<h3>Usuario</h3>
+	<p:dataTable id="usuarios" value="#{usuariosView.usuario}" var="usuario">
+		<p:column headerText="Cedula">
+			#{usuario.cedula}
+		</p:column>
+		<p:column headerText="Nombre">
+			#{usuario.nombre}
+		</p:column>
+		<p:column headerText="Apellido">
+			#{usuario.apellido}
+		</p:column>
+		
+	</p:dataTable>
+	
+	<h:form id="form">
+		<p:outputLabel style="color:red" value="#{usuariosView.mensaje}" 
+		rendered="#{usuariosView.mensaje != null}"/>
+	</h:form>
+	
+	<p><a href="JSF.xhtml">Volver atrás</a></p>	
+	
+	
+
+</body> 
+</html>
