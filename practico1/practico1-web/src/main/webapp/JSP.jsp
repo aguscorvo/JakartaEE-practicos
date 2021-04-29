@@ -8,9 +8,12 @@
 </head>
 <body>
     <h1>VACUNAS.UY - USUARIOS</h1>
-    <p><a href="CargarDatosServlet">Cargar datos de prueba</a></p>    
+    <!--  <p><a href="CargarDatosServlet">Cargar datos de prueba</a></p>    -->
 	<p><a href="ListarUsuariosServlet">Listar usuarios</a></p>
 	<p><a href="agregarUsuario.jsp">Agregar usuario</a></p>
-	<p><a href="buscarUsuario.jsp">Buscar usuario</a></p>		
+	<p><a href="buscarUsuario.jsp">Buscar usuario</a></p>
+	
+	<p style="margin-top: 10px"><a href="index.jsp">Volver atrás</a></p>	
+	
 </body>
 </html>

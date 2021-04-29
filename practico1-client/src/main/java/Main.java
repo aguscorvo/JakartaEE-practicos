@@ -34,7 +34,7 @@ public class Main {
 					+ "3- Buscar usuario\n"
 					+ "4- Borrar usuario\n"
 					+ "5- Editar usuario\n"
-					+ "6- Cargar datos\n" 
+//					+ "6- Cargar datos\n" 
 					+ "0- Salir\n\n");
 			
 			opcion = entrada.nextInt();
@@ -63,10 +63,10 @@ public class Main {
 					System.out.print("\n\nEDITAR USUARIO\n\n");
 					editarUsuario(usuarioBusiness);
 					break;
-				case 6: 
-					System.out.print("\n\nCARGAR DATOS\n");
-					cargarDatos(usuarioBusiness);
-					break;
+//				case 6: 
+//					System.out.print("\n\nCARGAR DATOS\n");
+//					cargarDatos(usuarioBusiness);
+//					break;
 				default:
 					System.out.print("\nOpción incorrecta. Vuelva a intentarlo.\n");
 					break;
@@ -142,10 +142,10 @@ public class Main {
 
 	
 	// Cargar datos
-	private static void cargarDatos(UsuarioBusinessRemote business) {
-		business.agregarDatos();
-		subMenu ();
-	}
+//	private static void cargarDatos(UsuarioBusinessRemote business) {
+//		business.agregarDatos();
+//		subMenu ();
+//	}
 	
 	// Borrar usuario
 	private static void borrarUsuario(UsuarioBusinessRemote business) {

@@ -14,6 +14,7 @@ import entity.Usuario;
 public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 	
 	List<Usuario> usuarios = new ArrayList<Usuario>();
+	boolean datosCargados = false;
 
    
     public UsuarioDAO() {}
@@ -35,6 +36,8 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 
 	@Override
 	public List<Usuario> obtenerUsuarios() {
+		if (!datosCargados)
+			agregarDatos();
 		return usuarios;
 	}
 
@@ -57,6 +60,7 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 		usuarios.add(user1);
 		usuarios.add(user2);
 		usuarios.add(user3);
+		datosCargados=true;
 	}
 
 	@Override

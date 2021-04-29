@@ -48,10 +48,10 @@ public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLo
     	return aDevolver;
     }
 
-	@Override
-	public void agregarDatos() {
-		usuarioDAO.agregarDatos();
-	}
+//	@Override
+//	public void agregarDatos() {
+//		usuarioDAO.agregarDatos();
+//	}
 
 	@Override
 	public void borrarUsuario(int cedula) {

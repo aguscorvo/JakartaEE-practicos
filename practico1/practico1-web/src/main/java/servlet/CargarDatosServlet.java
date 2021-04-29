@@ -24,7 +24,7 @@ public class CargarDatosServlet extends HttpServlet {
    }
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		usuarioBusiness.agregarDatos();
+//		usuarioBusiness.agregarDatos();
 		request.getRequestDispatcher("JSP.jsp").forward(request, response);
 	}
 
