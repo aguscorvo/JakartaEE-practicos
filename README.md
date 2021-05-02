@@ -1,4 +1,4 @@
-﻿# Práctico 1
+﻿# Prácticos 1 y 2
 
 Aplicación que permite gestionar usuarios.
 
@@ -6,7 +6,7 @@ Aplicación que permite gestionar usuarios.
 
 - Capa de presentación. Implementada como una aplicación Java (en consola) y como aplicación web utilizando Servlets y JSPs, así como también JSF + PrimeFaces.
 - Capa de negocio.
-- Capa de acceso a datos.
+- Capa de acceso a datos. Se utiliza JPA para almacenar los datos de entidades en una base de datos PostgreSQL.
 
 ## Funcionalidades
 
@@ -19,4 +19,4 @@ Aplicación que permite gestionar usuarios.
 ## Por hacer
 
 - Manejo de excepciones
-- Despliegue en la nube utilizando Openshift. CI/CD.
+- Servicios Web SOAP / REST
