@@ -15,7 +15,6 @@ import entity.Usuario;
 @LocalBean
 public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 	
-//	List<Usuario> usuarios = new ArrayList<Usuario>();
 	boolean datosCargados = false;
 	
 	@PersistenceContext(name = "tse")
@@ -29,17 +28,11 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 		if (aux!=null)
 			return true;
 		return false;
-//    	for (Usuario u: usuarios) {
-//    		if (u.getCedula() == cedula)
-//    			return true;
-//    	}
-//    	return false;
 	}
 
 	@Override
 	public void agregarUsuario(Usuario usuario) {
 		if (!existeUsuario(usuario.getCedula())) {
-//			usuarios.add(usuario);
 			em.persist(usuario);
 		}		
 	}
@@ -48,7 +41,6 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 	public List<Usuario> obtenerUsuarios() {
 		if (!datosCargados)
 			agregarDatos();
-//		return usuarios;
 		Query query = em.createQuery("SELECT u FROM Usuario u");
 		@SuppressWarnings("unchecked")
 		List<Usuario> usuarios = query.getResultList();
@@ -57,13 +49,6 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 
 	@Override
 	public Usuario obtenerUsuario(int cedula) {
-//		if (existeUsuario(cedula)) {
-//			for (Usuario u: usuarios) {
-//				if (u.getCedula() == cedula)
-//					return u;
-//			}
-//		}
-//		return null;
 		Usuario aux = new Usuario();
 		aux = em.find(Usuario.class, cedula);
 		return aux;
@@ -77,9 +62,6 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 		em.persist(user1);
 		em.persist(user2);
 		em.persist(user3);
-//		usuarios.add(user1);
-//		usuarios.add(user2);
-//		usuarios.add(user3);
 		datosCargados=true;
 	}
 
@@ -96,8 +78,9 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 		if (existeUsuario(cedula)) {
 			Usuario aux = obtenerUsuario(cedula);
 			aux.setNombre(nombre);
-			aux.setApellido(apellido);		
-		}		
+			aux.setApellido(apellido);	
+			em.persist(aux);
+		}
 	}
 
 	

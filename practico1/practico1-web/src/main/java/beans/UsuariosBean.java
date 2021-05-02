@@ -11,6 +11,7 @@ import javax.inject.Named;
 
 import business.UsuarioBusinessLocal;
 import dt.DtUsuario;
+import exception.RegistroUsuarioException;
 
 @Named("usuariosView")
 @ViewScoped
@@ -34,34 +35,33 @@ public class UsuariosBean implements Serializable{
 	}
 	
 	public void buscarUsuario() {
-		DtUsuario usuarioEncontrado = usuarioBusiness.obtenerUsuario(cedula);
-		if (usuarioEncontrado!=null) {
+		DtUsuario usuarioEncontrado;
+		try {
+			usuarioEncontrado = usuarioBusiness.obtenerUsuario(cedula);
 			usuario.setCedula(usuarioEncontrado.getCedula());
 			usuario.setNombre(usuarioEncontrado.getNombre());
 			usuario.setApellido(usuarioEncontrado.getApellido());	
 			mensaje=null;
-
-		}
-		else {
+			
+		} catch (RegistroUsuarioException e) {
 			usuario.setCedula(0);
 			usuario.setNombre("");
-			usuario.setApellido("");	
-			mensaje="Usuario no registrado.";
-			
+			usuario.setApellido("");
+			mensaje = e.getMessage();
+			e.printStackTrace();
 		}
+	
 	}
 	
-	public void agregarUsuario() {
-		if ( (!usuario.getNombre().equals(null))
-				& (!usuario.getApellido().equals(null))
-				& (usuario.getCedula()!=0)) {
-			
-			usuarioBusiness.agregarUsuario(usuario);
-			mensaje="El usuario con cédula "+ usuario.getCedula() + " fue creado exitosamente";	
-			
-		}else {
-			mensaje="Error";	
-		}
+	public void agregarUsuario() {					
+			try {
+				usuarioBusiness.agregarUsuario(usuario);
+				mensaje="El usuario con cédula "+ usuario.getCedula() + " fue creado exitosamente";	
+
+			} catch (RegistroUsuarioException e) {
+				mensaje = e.getMessage();
+				e.printStackTrace();
+			}			
 	}
 
 	public List<DtUsuario> getListaUsuarios() {		
@@ -99,8 +99,6 @@ public class UsuariosBean implements Serializable{
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
-	
-	
 	
 
 	

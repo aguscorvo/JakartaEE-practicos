@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import business.UsuarioBusinessLocal;
 import dt.DtUsuario;
+import exception.RegistroUsuarioException;
 
 
 @WebServlet("/AgregarUsuarioServlet")
@@ -38,13 +39,16 @@ public class AgregarUsuarioServlet extends HttpServlet {
 		
 		DtUsuario nuevoUsuario = new DtUsuario(cedula, nombre, apellido);
 		
-		usuarioBusiness.agregarUsuario(nuevoUsuario);
-		String mensaje = "El usuario con cédula "+ cedula + " fue creado exitosamente.";
+		try {
+			usuarioBusiness.agregarUsuario(nuevoUsuario);
+			String mensaje = "El usuario con cédula "+ cedula + " fue creado exitosamente.";
+			request.setAttribute("mensaje", mensaje);
+		} catch (RegistroUsuarioException e) {
+//			e.printStackTrace();
+			throw new ServletException(e);
+		}
 		
-		request.setAttribute("mensaje", mensaje);
-
-		request.getRequestDispatcher("agregarUsuario.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("agregarUsuario.jsp").forward(request, response);		
 
 	}
 

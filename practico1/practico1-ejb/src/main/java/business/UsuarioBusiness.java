@@ -10,6 +10,7 @@ import javax.ejb.Stateless;
 import dao.UsuarioDAOLocal;
 import dt.DtUsuario;
 import entity.Usuario;
+import exception.RegistroUsuarioException;
 
 
 @Stateless
@@ -22,9 +23,16 @@ public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLo
     public UsuarioBusiness() {}
     
     @Override
-    public void agregarUsuario(DtUsuario usuario) {
-    	Usuario nuevoUsuario = new Usuario (usuario.getCedula(), usuario.getNombre(), usuario.getApellido());
-    	usuarioDAO.agregarUsuario(nuevoUsuario);
+    public void agregarUsuario(DtUsuario usuario) throws RegistroUsuarioException {
+    	Usuario aux = usuarioDAO.obtenerUsuario(usuario.getCedula());
+    	if (aux!=null) {
+    		throw new RegistroUsuarioException("ERROR: Ya existe un usuario registrado con cédula " 
+    				+ usuario.getCedula(), RegistroUsuarioException.USUARIO_REGISTRADO );
+    	}else {
+    	
+	    	Usuario nuevoUsuario = new Usuario (usuario.getCedula(), usuario.getNombre(), usuario.getApellido());
+	    	usuarioDAO.agregarUsuario(nuevoUsuario);
+    	}
     }
     
 	@Override
@@ -40,27 +48,44 @@ public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLo
     }
     
     @Override
-    public DtUsuario obtenerUsuario(int cedula) {
+    public DtUsuario obtenerUsuario(int cedula) throws RegistroUsuarioException {
     	Usuario aux = usuarioDAO.obtenerUsuario(cedula);
     	DtUsuario aDevolver =null;
-    	if (aux!=null)
-    		aDevolver = new DtUsuario (aux.getCedula(), aux.getNombre(), aux.getApellido());
+
+    	if (aux==null) {
+    		throw new RegistroUsuarioException("ERROR: No existe un usuario registrado con cédula " 
+    				+ cedula, RegistroUsuarioException.USUARIO_NO_REGISTRADO );
+    	}else {
+        	aDevolver = new DtUsuario (aux.getCedula(), aux.getNombre(), aux.getApellido());    		
+    	}
+    	
     	return aDevolver;
+    		
     }
 
-//	@Override
-//	public void agregarDatos() {
-//		usuarioDAO.agregarDatos();
-//	}
-
 	@Override
-	public void borrarUsuario(int cedula) {
-		usuarioDAO.borrarUsuario(cedula);
+	public void borrarUsuario(int cedula) throws RegistroUsuarioException {
+		Usuario aux = usuarioDAO.obtenerUsuario(cedula);
+
+    	if (aux==null) {
+    		throw new RegistroUsuarioException("ERROR: No existe un usuario registrado con cédula " 
+    				+ cedula, RegistroUsuarioException.USUARIO_NO_REGISTRADO );
+    	}else {
+    		usuarioDAO.borrarUsuario(cedula);
+    	}
+		
 	}
 
 	@Override
-	public void editarUsuario(int cedula, String nombre, String apellido) {
-		usuarioDAO.editarUsuario(cedula, nombre, apellido);
+	public void editarUsuario(int cedula, String nombre, String apellido) throws RegistroUsuarioException {
+		Usuario aux = usuarioDAO.obtenerUsuario(cedula);
+		
+		if (aux==null) {
+    		throw new RegistroUsuarioException("ERROR: No existe un usuario registrado con cédula " 
+    				+ cedula, RegistroUsuarioException.USUARIO_NO_REGISTRADO );
+    	}else {
+    		usuarioDAO.editarUsuario(cedula, nombre, apellido);
+    	}
 	}
     
 

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import business.UsuarioBusinessLocal;
 import dt.DtUsuario;
+import exception.RegistroUsuarioException;
 
 @WebServlet("/BuscarUsuarioServlet")
 public class BuscarUsuarioServlet extends HttpServlet {
@@ -31,16 +32,17 @@ public class BuscarUsuarioServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int cedula = Integer.valueOf(request.getParameter("cedula"));
-		DtUsuario usuarioEncontrado = usuarioBusiness.obtenerUsuario(cedula);
-				
-		if(usuarioEncontrado != null) {
+		DtUsuario usuarioEncontrado;
+		try {
+			usuarioEncontrado = usuarioBusiness.obtenerUsuario(cedula);
 			request.setAttribute("cedula", usuarioEncontrado.getCedula());
 			request.setAttribute("nombre", usuarioEncontrado.getNombre());
 			request.setAttribute("apellido", usuarioEncontrado.getApellido());
-		}else {
+		} catch (RegistroUsuarioException e) {
 			request.setAttribute("mensaje", "Usuario no registrado");
-		}			
-		
+			throw new ServletException(e);
+		}
+				
 		request.getRequestDispatcher("buscarUsuario.jsp").forward(request, response);
 		
 	}
