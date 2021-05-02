@@ -40,6 +40,9 @@
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
+        
+        <hibernate.version>5.4.21.Final</hibernate.version>
+        
     </properties>
 
     <!-- the JBoss community and Red Hat GA Maven repositories -->
@@ -99,6 +102,22 @@
 
     <dependencyManagement>
         <dependencies>
+        
+        	<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>42.2.16</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
 
             <!-- Define the version of the EJB jar so that we don't need
                 to repeat ourselves in every module -->
