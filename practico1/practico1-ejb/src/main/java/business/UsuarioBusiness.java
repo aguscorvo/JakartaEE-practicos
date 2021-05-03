@@ -84,7 +84,11 @@ public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLo
     		throw new RegistroUsuarioException("ERROR: No existe un usuario registrado con cédula " 
     				+ usuario.getCedula(), RegistroUsuarioException.USUARIO_NO_REGISTRADO );
     	}else {
-    		usuarioDAO.editarUsuario(aux);
+    		Usuario usuarioModificado = new Usuario (usuario.getCedula(), usuario.getNombre(), 
+    				usuario.getApellido());
+//    		aux.setNombre(usuario.getNombre());
+//    		aux.setApellido(usuario.getApellido());
+    		usuarioDAO.editarUsuario(usuarioModificado);
     	}
 	}
     

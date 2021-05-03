@@ -166,9 +166,22 @@ public class Main {
 		System.out.print("\nNuevo apellido: ");
 		apellido = entrada.next();
 		DtUsuario usuarioModificado = new DtUsuario(cedula, nombre, apellido);
+		
+		DtUsuario usuarioSinModificar = business.obtenerUsuario(cedula);
+		System.out.print("\nUsuario sin modificar: \nCedula: " + usuarioSinModificar.getCedula() + 
+				" / Nombre: " + usuarioSinModificar.getNombre() + " / Apellido: " 
+				+ usuarioSinModificar.getApellido() + "\n");
+		
 		business.editarUsuario(usuarioModificado);
 		System.out.print("\nUsuario modificado: \nCedula: " + cedula + " / Nombre: " 
 				+ nombre + " / Apellido: " + apellido + "\n");
+		
+		DtUsuario usuarioPrueba = business.obtenerUsuario(cedula);
+		
+		System.out.print("\nUsuario modificado?: \nCedula: " + usuarioPrueba.getCedula() + 
+				" / Nombre: " + usuarioPrueba.getNombre() + " / Apellido: " 
+				+ usuarioPrueba.getApellido() + "\n");		
+		
 		subMenu ();	
 		
 	}

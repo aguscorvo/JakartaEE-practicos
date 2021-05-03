@@ -81,9 +81,7 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 			aux.setApellido(usuario.getApellido());	
 			em.persist(aux);
 		}
-	}
-
-	
+	}	
 
 	
 }
