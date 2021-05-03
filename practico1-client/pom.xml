@@ -3,6 +3,12 @@
   <groupId>tse-2021</groupId>
   <artifactId>practico1-client</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+  
 
 	<dependencies>
 	  	<dependency>

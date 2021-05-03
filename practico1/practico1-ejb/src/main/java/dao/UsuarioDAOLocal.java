@@ -13,6 +13,6 @@ public interface UsuarioDAOLocal {
     public Usuario obtenerUsuario(int cedula);
     public void agregarDatos();
     public void borrarUsuario(int cedula);
-    public void editarUsuario(int cedula, String nombre, String apellido);
+    public void editarUsuario(Usuario usuario);
 
 }

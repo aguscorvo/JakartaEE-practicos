@@ -77,14 +77,14 @@ public class UsuarioBusiness implements UsuarioBusinessRemote, UsuarioBusinessLo
 	}
 
 	@Override
-	public void editarUsuario(int cedula, String nombre, String apellido) throws RegistroUsuarioException {
-		Usuario aux = usuarioDAO.obtenerUsuario(cedula);
+	public void editarUsuario(DtUsuario usuario) throws RegistroUsuarioException {
+		Usuario aux = usuarioDAO.obtenerUsuario(usuario.getCedula());
 		
 		if (aux==null) {
     		throw new RegistroUsuarioException("ERROR: No existe un usuario registrado con cédula " 
-    				+ cedula, RegistroUsuarioException.USUARIO_NO_REGISTRADO );
+    				+ usuario.getCedula(), RegistroUsuarioException.USUARIO_NO_REGISTRADO );
     	}else {
-    		usuarioDAO.editarUsuario(cedula, nombre, apellido);
+    		usuarioDAO.editarUsuario(aux);
     	}
 	}
     

@@ -35,7 +35,7 @@
           />
          <button type="submit">Agregar usuario</button>
     </form>
-    <p>${mensaje}</p>
+    <p style="color:red">${mensaje}</p>
     <p><a href="JSP.jsp">Volver atrás</a></p>		
     
 

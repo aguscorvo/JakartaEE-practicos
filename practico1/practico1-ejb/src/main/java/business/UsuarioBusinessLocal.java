@@ -13,5 +13,5 @@ public interface UsuarioBusinessLocal {
     public List<DtUsuario> obtenerUsuarios();
     public DtUsuario obtenerUsuario(int cedula) throws RegistroUsuarioException;
     public void borrarUsuario(int cedula) throws RegistroUsuarioException;
-    public void editarUsuario(int cedula, String nombre, String apellido) throws RegistroUsuarioException;
+    public void editarUsuario(DtUsuario usuario) throws RegistroUsuarioException;
 }

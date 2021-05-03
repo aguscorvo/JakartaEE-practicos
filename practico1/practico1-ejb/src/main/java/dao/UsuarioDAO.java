@@ -74,11 +74,11 @@ public class UsuarioDAO implements UsuarioDAORemote, UsuarioDAOLocal {
 	}
 
 	@Override
-	public void editarUsuario(int cedula, String nombre, String apellido) {
-		if (existeUsuario(cedula)) {
-			Usuario aux = obtenerUsuario(cedula);
-			aux.setNombre(nombre);
-			aux.setApellido(apellido);	
+	public void editarUsuario(Usuario usuario) {
+		if (existeUsuario(usuario.getCedula())) {
+			Usuario aux = obtenerUsuario(usuario.getCedula());
+			aux.setNombre(usuario.getNombre());
+			aux.setApellido(usuario.getApellido());	
 			em.persist(aux);
 		}
 	}

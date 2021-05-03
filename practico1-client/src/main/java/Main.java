@@ -165,7 +165,8 @@ public class Main {
 		nombre = entrada.next();
 		System.out.print("\nNuevo apellido: ");
 		apellido = entrada.next();
-		business.editarUsuario(cedula, nombre, apellido);
+		DtUsuario usuarioModificado = new DtUsuario(cedula, nombre, apellido);
+		business.editarUsuario(usuarioModificado);
 		System.out.print("\nUsuario modificado: \nCedula: " + cedula + " / Nombre: " 
 				+ nombre + " / Apellido: " + apellido + "\n");
 		subMenu ();	

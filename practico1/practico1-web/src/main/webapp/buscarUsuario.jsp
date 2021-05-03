@@ -21,7 +21,7 @@
       <button type="submit">Buscar usuario</button>
     </form>
     
-    <p>${mensaje}</p>
+    <p style="color:red">${mensaje}</p>
     
     
     <div style="margin-top: 10px">
